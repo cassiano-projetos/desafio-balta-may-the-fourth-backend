@@ -1,0 +1,33 @@
+﻿namespace desafio_shared.Entities
+{
+    public class Character
+    {
+        public Character(string name,
+            string height,
+            string weight,
+            string hairColor,
+            string skinColor,
+            string eyeColor,
+            string birthYear,
+            string gender)
+        {
+            Name = name;
+            Height = height;
+            Weight = weight;
+            HairColor = hairColor; 
+            SkinColor = skinColor;
+            EyeColor = eyeColor;
+            BirthYear = birthYear;
+            Gender = gender;
+        }
+
+        public string Name { get; private set; } = string.Empty;
+        public string Height { get; private set; } = string.Empty;
+        public string Weight { get; private set; } = string.Empty;
+        public string HairColor { get; private set; } = string.Empty;
+        public string SkinColor { get; private set; } = string.Empty;
+        public string EyeColor { get; private set; } = string.Empty;
+        public string BirthYear { get; private set; } = string.Empty;
+        public string Gender { get; private set; } = string.Empty;
+    }
+}
