@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+builder.AddArchitectures();
 
-app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
+app.MapRoutes();
+app.UseArchitectures();
 
 app.Run();
