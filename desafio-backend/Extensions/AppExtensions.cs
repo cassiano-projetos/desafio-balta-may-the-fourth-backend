@@ -1,4 +1,6 @@
-﻿namespace desafio_backend.Extensions
+﻿using AutoMapper;
+
+namespace desafio_backend.Extensions
 {
     public static class AppExtensions
     {

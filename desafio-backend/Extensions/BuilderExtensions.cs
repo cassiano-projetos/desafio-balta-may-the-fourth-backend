@@ -8,6 +8,7 @@ namespace desafio_backend.Extensions
         {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(typeof(Program));
         }
     }
 }
