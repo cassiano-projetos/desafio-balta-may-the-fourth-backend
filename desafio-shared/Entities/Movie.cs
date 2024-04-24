@@ -23,5 +23,10 @@
         public string Director { get; private set; } = string.Empty;
         public string Producer { get; private set; } = string.Empty;
         public DateTime ReleaseDate { get; private set; }
+
+        public IEnumerable<Character> Characters { get; set; }
+        public IEnumerable<Starship> Starships { get; set; }
+        public IEnumerable<Planet> Planets { get; set; }
+        public IEnumerable<Vehicle> Vehicles { get; set; }
     }
 }
