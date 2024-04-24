@@ -32,5 +32,10 @@
         public string Terrain { get; private set; } = string.Empty;
         public string SurfaceWater { get; private set; } = string.Empty;
         public string Population { get; private set; } = string.Empty;
+        
+        public int CharacterId { get; private set; }
+        public Character Character { get; private set; }
+        
+        
     }
 }

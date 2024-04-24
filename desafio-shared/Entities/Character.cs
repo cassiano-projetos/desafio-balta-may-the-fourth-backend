@@ -31,5 +31,7 @@
         public string Gender { get; private set; } = string.Empty;
 
         public IEnumerable<Movie> Movies { get; private set; } 
+        
+        public Planet Planet { get; private set; }
     }
 }
