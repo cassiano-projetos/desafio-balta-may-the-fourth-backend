@@ -23,5 +23,9 @@
         public string Director { get; private set; } = string.Empty;
         public string Producer { get; private set; } = string.Empty;
         public DateTime ReleaseDate { get; private set; }
+        
+        public int CharacterId { get; private set; }
+        
+        public Character Character { get; private set; }
     }
 }
