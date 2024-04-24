@@ -1,8 +1,8 @@
 ﻿namespace desafio_shared.Entities
 {
-    public class Starship
+    public class Starship : Entity
     {
-        public Starship(string name, 
+        public Starship(int id,string name, 
             string model, 
             string manufacturer, 
             string costInCredits, 
@@ -14,7 +14,7 @@
             string hyperdriveRating, 
             string mglt, 
             string consumables, 
-            string @class)
+            string @class) : base(id)
         {
             Name = name;
             Model = model;

@@ -1,8 +1,8 @@
 ﻿namespace desafio_shared.Entities
 {
-    public class Vehicle
+    public class Vehicle : Entity
     {
-        public Vehicle(string name,
+        public Vehicle(int id,string name,
             string model,
             string manufacturer,
             string costInCredits,
@@ -12,7 +12,7 @@
             string passengers,
             string cargoCapacity,
             string consumables,
-            string @class)
+            string @class) : base(id)
         {
             Name = name;
             Model = model;

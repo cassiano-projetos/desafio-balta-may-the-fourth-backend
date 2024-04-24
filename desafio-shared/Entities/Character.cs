@@ -1,15 +1,15 @@
 ﻿namespace desafio_shared.Entities
 {
-    public class Character
+    public class Character : Entity
     {
-        public Character(string name,
+        public Character(int id,string name,
             string height,
             string weight,
             string hairColor,
             string skinColor,
             string eyeColor,
             string birthYear,
-            string gender)
+            string gender) : base(id)
         {
             Name = name;
             Height = height;
@@ -29,5 +29,7 @@
         public string EyeColor { get; private set; } = string.Empty;
         public string BirthYear { get; private set; } = string.Empty;
         public string Gender { get; private set; } = string.Empty;
+
+        public IEnumerable<Movie> Movies { get; private set; } 
     }
 }

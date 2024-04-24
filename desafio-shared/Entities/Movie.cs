@@ -1,13 +1,13 @@
 ﻿namespace desafio_shared.Entities
 {
-    public class Movie
+    public class Movie : Entity
     {
-        public Movie(string title, 
+        public Movie(int id,string title, 
             int episode, 
             string openingCrawl, 
             string director, 
             string producer, 
-            DateTime releaseDate)
+            DateTime releaseDate) : base(id)
         {
             Title = title;
             Episode = episode;

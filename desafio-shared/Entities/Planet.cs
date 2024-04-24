@@ -1,8 +1,8 @@
 ﻿namespace desafio_shared.Entities
 {
-    public class Planet
+    public class Planet : Entity
     {
-        public Planet(string name, 
+        public Planet(int id,string name, 
             string rotationPeriod, 
             string orbitalPeriod,
             string diameter, 
@@ -10,7 +10,7 @@
             string gravity, 
             string terrain, 
             string surfaceWater, 
-            string population)
+            string population) : base(id)
         {
             Name = name;
             RotationPeriod = rotationPeriod;
