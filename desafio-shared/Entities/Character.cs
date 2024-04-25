@@ -29,5 +29,8 @@
         public string EyeColor { get; private set; } = string.Empty;
         public string BirthYear { get; private set; } = string.Empty;
         public string Gender { get; private set; } = string.Empty;
+        public Planet Planet { get; set; } = null;
+        public IEnumerable<Movie> Movies { get; set; } = Enumerable.Empty<Movie>();
+
     }
 }

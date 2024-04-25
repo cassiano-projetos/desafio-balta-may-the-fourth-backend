@@ -1,4 +1,6 @@
-﻿namespace desafio_backend.ViewModels
+﻿using desafio_backend.ViewModels.MovieViewModel;
+
+namespace desafio_backend.ViewModels
 {
     public class CharacterViewModel
     {
@@ -22,5 +24,9 @@
         public string EyeColor { get; private set; } = string.Empty;
         public string BirthYear { get; private set; } = string.Empty;
         public string Gender { get; private set; } = string.Empty;
+
+        public BasicInfoViewModel Planet { get; set; } = new BasicInfoViewModel();
+        public IEnumerable<BasicMovieInfoViewModel> Movies { get; set; } = Enumerable.Empty<BasicMovieInfoViewModel>();
+
     }
 }
