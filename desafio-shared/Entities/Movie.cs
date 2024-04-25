@@ -2,11 +2,11 @@
 {
     public class Movie : Entity
     {
-        public Movie(int id,string title, 
-            int episode, 
-            string openingCrawl, 
-            string director, 
-            string producer, 
+        public Movie(int id, string title,
+            int episode,
+            string openingCrawl,
+            string director,
+            string producer,
             DateTime releaseDate) : base(id)
         {
             Title = title;
@@ -24,8 +24,7 @@
         public string Producer { get; private set; } = string.Empty;
         public DateTime ReleaseDate { get; private set; }
 
-
-        // Adicionado temporariamente por conta do AutoMapper 
+        public ICollection<MovieCharacter> MovieCharacters { get; private set; }
         public IEnumerable<Character> Characters { get; set; } = Enumerable.Empty<Character>();
         public IEnumerable<Planet> Planets { get; set; } = Enumerable.Empty<Planet>();
         public IEnumerable<Vehicle> Vehicles { get; set; } = Enumerable.Empty<Vehicle>();

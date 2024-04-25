@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using desafio_backend.ViewModels;
-using desafio_backend.ViewModels.MovieViewModel;
 using desafio_shared.Entities;
 
 namespace desafio_backend.Routes
@@ -22,9 +21,9 @@ namespace desafio_backend.Routes
         public static List<Character> GenerateFakeCharacter()
         {
             return new List<Character> {
-            new Character("Character 1","", "Character crawl 1", "Character 1", "Character 1", "", "", ""),
-            new Character("Character 2","", "Character crawl 2", "Character 2", "Character 2", "", "", ""),
-            new Character("Character 3","", "Character crawl 3", "Character 3", "Character 3", "", "", "")
+            new Character(1, "Character 1","", "Character crawl 1", "Character 1", "Character 1", "", "", ""),
+            new Character(2, "Character 2","", "Character crawl 2", "Character 2", "Character 2", "", "", ""),
+            new Character(3, "Character 3","", "Character crawl 3", "Character 3", "Character 3", "", "", "")
         };
 
         }
