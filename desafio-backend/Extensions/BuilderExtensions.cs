@@ -1,4 +1,5 @@
 ﻿using System;
+using desafio_shared.Data;
 
 namespace desafio_backend.Extensions
 {
@@ -8,6 +9,7 @@ namespace desafio_backend.Extensions
         {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<AppDbContext>();
         }
     }
 }

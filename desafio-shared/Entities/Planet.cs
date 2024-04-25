@@ -33,9 +33,11 @@
         public string SurfaceWater { get; private set; } = string.Empty;
         public string Population { get; private set; } = string.Empty;
         
-        public int CharacterId { get; private set; }
-        public Character Character { get; private set; }
+       // public int CharacterId { get; private set; }
+       // public Character Character { get; private set; }
         
+        public IEnumerable<Character> Characters { get; private set; }
         
+        public IEnumerable<Movie> Movies { get; private set; }
     }
 }

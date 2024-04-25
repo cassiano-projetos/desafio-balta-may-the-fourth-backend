@@ -44,8 +44,7 @@ namespace desafio_shared.Mapping
             //Relationship
 
 
-            builder.HasMany(x => x.Characters)
-                .WithOne(x =>)
+            builder.HasMany(x => x.Characters);
             builder.HasMany(x => x.Starships);
             builder.HasMany(x => x.Planets);
             builder.HasMany(x => x.Vehicles);
