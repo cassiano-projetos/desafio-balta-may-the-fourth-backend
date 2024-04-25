@@ -13,5 +13,6 @@ public class AppDbContext : DbContext
     public DbSet<Vehicle> Vehicles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite("DataSource=balta-desafio.db;Cache=Shared");
+        => optionsBuilder.UseSqlite("DataSource=balta-desafio0.db;Cache=Shared");
+    
 }

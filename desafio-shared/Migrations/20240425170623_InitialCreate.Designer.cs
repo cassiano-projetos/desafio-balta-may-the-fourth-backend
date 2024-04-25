@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using desafio_shared.Data;
 
@@ -10,9 +11,11 @@ using desafio_shared.Data;
 namespace desafio_shared.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240425170623_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -171,18 +174,6 @@ namespace desafio_shared.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Director = "George Lucas",
-                            Episode = 4,
-                            OpeningCrawl = "It is a period of civil war.",
-                            Producer = "Gary Kurtz, Rick McCallum",
-                            ReleaseDate = new DateTime(1977, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Star Wars: Episode IV - A New Hope"
-                        });
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Planet", b =>
@@ -230,21 +221,6 @@ namespace desafio_shared.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Planets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Climate = "Arid",
-                            Diameter = "10465",
-                            Gravity = "1 standard",
-                            Name = "Tatooine",
-                            OrbitalPeriod = "304",
-                            Population = "200000",
-                            RotationPeriod = "23",
-                            SurfaceWater = "1",
-                            Terrain = "Desert"
-                        });
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Starship", b =>
