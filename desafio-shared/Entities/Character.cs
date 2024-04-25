@@ -21,6 +21,8 @@
             Gender = gender;
         }
 
+       
+
         public string Name { get; private set; } = string.Empty;
         public string Height { get; private set; } = string.Empty;
         public string Weight { get; private set; } = string.Empty;
@@ -34,5 +36,7 @@
         
         public int PlanetId { get; private set; }
         public Planet Planet { get; private set; }
+        
+        
     }
 }
