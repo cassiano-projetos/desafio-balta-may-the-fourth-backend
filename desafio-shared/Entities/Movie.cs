@@ -23,20 +23,13 @@
         public string Director { get; private set; } = string.Empty;
         public string Producer { get; private set; } = string.Empty;
         public DateTime ReleaseDate { get; private set; }
-        
-      //  public int CharacterId { get; private set; }
-        public IEnumerable<Character> Characters { get; set; }
-        
-      //  public Character Character { get; private set; }
-        
-       // public int PlanetId { get; private set; }
-        public IEnumerable<Planet> Planets { get; set; }
 
-      // public Planet Planet { get; private set; }
-        
-        //public int StarShipId { get; private set; }
-        public IEnumerable<Starship> Starships { get; set; }
-        
-        public IEnumerable<Vehicle> Vehicles { get; set; }
+
+        // Adicionado temporariamente por conta do AutoMapper 
+        public IEnumerable<Character> Characters { get; set; } = Enumerable.Empty<Character>();
+        public IEnumerable<Planet> Planets { get; set; } = Enumerable.Empty<Planet>();
+        public IEnumerable<Vehicle> Vehicles { get; set; } = Enumerable.Empty<Vehicle>();
+        public IEnumerable<Starship> Starships { get; set; } = Enumerable.Empty<Starship>();
+
     }
 }
