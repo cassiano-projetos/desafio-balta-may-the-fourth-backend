@@ -38,9 +38,7 @@
         public string CargoCapacity { get; private set; } = string.Empty;
         public string Consumables { get; private set; } = string.Empty;
         public string Class { get; private set; } = string.Empty;
-
-
-        public IEnumerable<Movie> Movies {get; set;} 
-
+        
+        public IEnumerable<Movie> Movies { get; private set; }
     }
 }

@@ -57,17 +57,17 @@ public class CharacterMap : IEntityTypeConfiguration<Character>
 
         
         //Relantionship
-        
-        builder.HasIndex(x => x.Planet, "IX_Character_Planet")
-            .IsUnique();
+
 
         builder.HasOne(p => p.Planet)
-            .WithOne(c => c.Character)
-            .HasForeignKey<Planet>(p=>p.CharacterId);
-        
+            .WithMany(c => c.Characters)
+            .HasForeignKey(pc=>pc.PlanetId);
+
         builder.HasMany(m => m.Movies)
-            .WithOne(p => p.Character)
-            .HasForeignKey(p => p.CharacterId);
+            .WithMany(c => c.Characters)
+            .UsingEntity<MovieCharacter>();
+            
+
 
     }
 }

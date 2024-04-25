@@ -48,7 +48,9 @@ namespace desafio_shared.Mapping
 
             //RELATIONSHIP
 
-            builder.HasMany(x => x.Movies);
+            builder.HasMany(x => x.Movies)
+                .WithMany(v=>v.Vehicles)
+                .UsingEntity<MovieVehicle>();
         }
     }
 }

@@ -32,6 +32,7 @@
 
         public IEnumerable<Movie> Movies { get; private set; } 
         
+        public int PlanetId { get; private set; }
         public Planet Planet { get; private set; }
     }
 }
