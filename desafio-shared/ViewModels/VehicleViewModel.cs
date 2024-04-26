@@ -2,7 +2,7 @@
 {
     public class VehicleViewModel
     {
-        public VehicleViewModel(string name, string model, string manufacturer, string costInCredits, string length, string maxSpeed, string crew, string passengers, string cargoCapacity, string consumables, string @class)
+        public VehicleViewModel(string name, string model, string manufacturer, string costInCredits, string length, string maxSpeed, string crew, string passengers, string cargoCapacity, string consumables, string @class, IEnumerable<BasicMovieInfoViewModel> movies)
         {
             Name = name;
             Model = model;
@@ -15,6 +15,7 @@
             CargoCapacity = cargoCapacity;
             Consumables = consumables;
             Class = @class;
+            Movies = movies;
         }
 
         public string Name { get; private set; } = string.Empty;
@@ -28,5 +29,6 @@
         public string CargoCapacity { get; private set; } = string.Empty;
         public string Consumables { get; private set; } = string.Empty;
         public string Class { get; private set; } = string.Empty;
+        public IEnumerable<BasicMovieInfoViewModel> Movies { get; private set; }
     }
 }

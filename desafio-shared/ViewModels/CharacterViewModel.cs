@@ -1,10 +1,11 @@
-﻿using desafio_backend.ViewModels.MovieViewModel;
+﻿using desafio_backend.ViewModels;
+using desafio_shared.Entities;
 
 namespace desafio_backend.ViewModels
 {
     public class CharacterViewModel
     {
-        public CharacterViewModel(string name, string height, string weight, string hairColor, string skinColor, string eyeColor, string birthYear, string gender)
+        public CharacterViewModel(string name, string height, string weight, string hairColor, string skinColor, string eyeColor, string birthYear, string gender, BasicInfoViewModel planet, IEnumerable<BasicMovieInfoViewModel> movies)
         {
             Name = name;
             Height = height;
@@ -14,6 +15,8 @@ namespace desafio_backend.ViewModels
             EyeColor = eyeColor;
             BirthYear = birthYear;
             Gender = gender;
+            Planet = planet;
+            Movies = movies;
         }
 
         public string Name { get; private set; } = string.Empty;

@@ -36,6 +36,7 @@
         
         public Planet Planet { get; set; } = null;
         public IEnumerable<Movie> Movies { get; set; } = Enumerable.Empty<Movie>();
-        
+        public IEnumerable<MovieCharacter> MovieCharacters { get; private set; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace desafio_backend.ViewModels.MovieViewModel
+﻿namespace desafio_backend.ViewModels
 {
     public class BasicMovieInfoViewModel
     {

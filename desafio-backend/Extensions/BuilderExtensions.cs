@@ -1,4 +1,4 @@
-﻿using System;
+﻿using desafio_backend.Services;
 using desafio_backend.Services.Interfaces;
 using desafio_shared.Data;
 
@@ -13,6 +13,8 @@ namespace desafio_backend.Extensions
             builder.Services.AddDbContext<AppDbContext>();
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<IVehicleService, VehicleService>();
+            builder.Services.AddScoped<ICharacterService, CharacterService>();
         }
     }
 }

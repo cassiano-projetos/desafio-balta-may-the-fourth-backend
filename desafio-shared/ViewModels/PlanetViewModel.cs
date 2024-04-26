@@ -1,4 +1,4 @@
-﻿namespace desafio_backend.ViewModels.PlanetViewModel
+﻿namespace desafio_backend.ViewModels
 {
     public class PlanetViewModel
     {

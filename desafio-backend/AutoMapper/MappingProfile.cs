@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using desafio_backend.ViewModels;
-using desafio_backend.ViewModels.MovieViewModel;
-using desafio_backend.ViewModels.PlanetViewModel;
 using desafio_shared.Entities;
 
 namespace desafio_backend.AutoMapper
