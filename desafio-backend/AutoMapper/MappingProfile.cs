@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using desafio_backend.ViewModels;
 using desafio_backend.ViewModels.MovieViewModel;
+using desafio_backend.ViewModels.PlanetViewModel;
 using desafio_shared.Entities;
 
 namespace desafio_backend.AutoMapper
@@ -12,6 +13,11 @@ namespace desafio_backend.AutoMapper
 
             CreateMap<Movie, MovieViewModel>();
             CreateMap<Character, CharacterViewModel>();
+
+            CreateMap<Planet, PlanetViewModel>();
+            CreateMap<Vehicle, VehicleViewModel>();
+            CreateMap<Starship, StarshipViewModel>();
+
         }
     }
 }

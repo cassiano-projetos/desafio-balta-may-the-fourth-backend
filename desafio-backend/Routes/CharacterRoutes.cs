@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using desafio_backend.ViewModels;
+using desafio_shared.Data;
 using desafio_shared.Entities;
 
 namespace desafio_backend.Routes
@@ -10,8 +11,8 @@ namespace desafio_backend.Routes
         {
             var mapper = app.Services.GetService<IMapper>();
 
-            app.MapGet("/character", () => {
-                var character = GenerateFakeCharacter();
+            app.MapGet("/character", (AppDbContext context) => {
+                var character = context.Characters.ToList();
                 List<CharacterViewModel>? characterViewModel = mapper?.Map<List<CharacterViewModel>>(character);
                 return Results.Ok(characterViewModel);
             }).Produces<List<CharacterViewModel>>(); ;

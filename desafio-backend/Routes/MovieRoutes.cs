@@ -17,46 +17,56 @@ namespace desafio_backend.Routes
 
             app.MapGet("/movie", (AppDbContext context) =>
             {
-                //List<Movie> movies = GenerateFakeMovies();
-                //List<Movie> movies = context.Movies.ToList();
 
-                var result = context.Movies
-                .SelectMany(
-                    movie => context.MovieCharacters.Where(cm => cm.MovieId == movie.Id),
-                    (movie, characterMovie) => new { Movie = movie, CharacterMovie = characterMovie })
-                .SelectMany(
-                    mc => context.Characters.Where(c => c.Id == mc.CharacterMovie.CharacterId),
-                    (mc, character) => new
-                    {
-                        mc.Movie.Id,
-                        mc.Movie.Title,
-                        mc.Movie.Episode,
-                        mc.Movie.OpeningCrawl,
-                        mc.Movie.Director,
-                        mc.Movie.Producer,
-                        mc.Movie.ReleaseDate,
-                        CharacterId = character.Id,
-                        character.Name
+                var resultado = context.Movies
+                    .Include(movie => movie.MovieCharacters)
+                        .ThenInclude(mc => mc.Character)
+                    .Include(planet => planet.MoviePlanets)
+                        .ThenInclude(mp => mp.Planet)
+                    .Include(vehicle => vehicle.MovieVehicles)
+                        .ThenInclude(mv => mv.Vehicle)
+                    .Include(starship => starship.MovieStarships)
+                        .ThenInclude(ms => ms.Starship)
+                    .Select(movie => new
+                    {                        
+                        Title = movie.Title,
+                        Episode = movie.Episode,
+                        OpeningCrawl = movie.OpeningCrawl,
+                        Director = movie.Director,
+                        Producer = movie.Producer,
+                        ReleaseDate = movie.ReleaseDate,
+                        
+                        Characters = movie.MovieCharacters.Select(mc => new
+                        {
+                            Id = mc.Character.Id,
+                            Name = mc.Character.Name
+                        }).ToList(),
+
+                        Planets = movie.MoviePlanets.Select(x => new
+                        {
+                            Id = x.Planet.Id,
+                            Name = x.Planet.Name
+                        }).ToList(),
+
+                        Vehicles = movie.MovieVehicles.Select(x => new
+                        {
+                            Id = x.Vehicle.Id,
+                            Name = x.Vehicle.Name
+                        }).ToList(),
+
+                        StarShips = movie.MovieStarships.Select(x => new
+                        {
+                            Id = x.Starship.Id,
+                            Name = x.Starship.Name
+                        }).ToList()
                     })
-                .ToList();
+                    .ToList();                
 
-                var movies = context.Movies.ToList();
-
-                List<MovieViewModel>? moviesViewModel = mapper?.Map<List<MovieViewModel>>(movies);
-                return Results.Ok(moviesViewModel);
+                //List<MovieViewModel>? moviesViewModel = mapper?.Map<List<MovieViewModel>>(resultado);
+                return Results.Ok(resultado);
 
             }).Produces<List<MovieViewModel>>();
             return app;
-        }
-
-        public static List<Movie> GenerateFakeMovies()
-        {
-            return new List<Movie> {
-            new Movie(1, "Movie 1", 1, "Opening crawl 1", "Director 1", "Producer 1", DateTime.Now),
-            new Movie(2, "Movie 2", 2, "Opening crawl 2", "Director 2", "Producer 2", DateTime.Now),
-            new Movie(3, "Movie 3", 3, "Opening crawl 3", "Director 3", "Producer 3", DateTime.Now),
-        };
-
         }
     }
 }

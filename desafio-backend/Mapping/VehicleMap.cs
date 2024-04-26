@@ -8,7 +8,7 @@ namespace desafio_shared.Mapping
     {
         public void Configure(EntityTypeBuilder<Vehicle> builder)
         {
-            builder.ToTable(nameof(Vehicle));
+            builder.ToTable("Vehicles");
 
             builder.HasKey(x => x.Id);
 

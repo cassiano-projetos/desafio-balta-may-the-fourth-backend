@@ -8,7 +8,7 @@ namespace desafio_backend.Mapping
     {
         public void Configure(EntityTypeBuilder<MovieCharacter> builder)
         {
-            builder.ToTable("CharacterMovie");
+            builder.ToTable("MovieCharacter");
 
             builder.HasKey(mc => new
             {

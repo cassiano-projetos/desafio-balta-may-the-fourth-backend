@@ -24,10 +24,13 @@
         public string Producer { get; private set; } = string.Empty;
         public DateTime ReleaseDate { get; private set; }
 
-        public ICollection<MovieCharacter> MovieCharacters { get; private set; }
+        public ICollection<MovieCharacter> MovieCharacters { get; private set; }        
         public IEnumerable<Character> Characters { get; set; } = Enumerable.Empty<Character>();
+        public ICollection<MoviePlanet> MoviePlanets { get; private set; }
         public IEnumerable<Planet> Planets { get; set; } = Enumerable.Empty<Planet>();
+        public ICollection<MovieVehicle> MovieVehicles { get; private set; }        
         public IEnumerable<Vehicle> Vehicles { get; set; } = Enumerable.Empty<Vehicle>();
+        public ICollection<MovieStarship> MovieStarships { get; private set; }
         public IEnumerable<Starship> Starships { get; set; } = Enumerable.Empty<Starship>();
 
     }

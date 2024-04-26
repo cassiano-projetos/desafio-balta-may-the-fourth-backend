@@ -8,7 +8,7 @@ public class CharacterMap : IEntityTypeConfiguration<Character>
 {
     public void Configure(EntityTypeBuilder<Character> builder)
     {
-        builder.ToTable("Character");
+        builder.ToTable("Characters");
 
         builder.HasKey(x => x.Id);
 

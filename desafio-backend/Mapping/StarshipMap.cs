@@ -8,7 +8,7 @@ public class StarshipMap : IEntityTypeConfiguration<Starship>
 {
     public void Configure(EntityTypeBuilder<Starship> builder)
     {
-        builder.ToTable("Starship");
+        builder.ToTable("Starships");
         
         builder.HasKey(x => x.Id);
         

@@ -7,7 +7,7 @@ using desafio_shared.Data;
 
 #nullable disable
 
-namespace desafio_shared.Migrations
+namespace desafio_backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -17,66 +17,6 @@ namespace desafio_shared.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
-            modelBuilder.Entity("CharacterMovie", b =>
-                {
-                    b.Property<int>("CharactersId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("CharactersId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("CharacterMovie");
-                });
-
-            modelBuilder.Entity("MoviePlanet", b =>
-                {
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PlanetsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("MoviesId", "PlanetsId");
-
-                    b.HasIndex("PlanetsId");
-
-                    b.ToTable("MoviePlanet");
-                });
-
-            modelBuilder.Entity("MovieStarship", b =>
-                {
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("StarshipsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("MoviesId", "StarshipsId");
-
-                    b.HasIndex("StarshipsId");
-
-                    b.ToTable("MovieStarship");
-                });
-
-            modelBuilder.Entity("MovieVehicle", b =>
-                {
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("VehiclesId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("MoviesId", "VehiclesId");
-
-                    b.HasIndex("VehiclesId");
-
-                    b.ToTable("MovieVehicle");
-                });
-
             modelBuilder.Entity("desafio_shared.Entities.Character", b =>
                 {
                     b.Property<int>("Id")
@@ -85,59 +25,60 @@ namespace desafio_shared.Migrations
 
                     b.Property<string>("BirthYear")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("BirthYear");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("EyeColor");
 
                     b.Property<string>("Gender")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Gender");
 
                     b.Property<string>("HairColor")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("HairColor");
 
                     b.Property<string>("Height")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Height");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Name");
 
                     b.Property<int>("PlanetId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SkinColor")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("SkinColor");
 
                     b.Property<string>("Weight")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Weight");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PlanetId");
 
-                    b.ToTable("Characters");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BirthYear = "19BBY",
-                            EyeColor = "Blue",
-                            Gender = "Male",
-                            HairColor = "Blond",
-                            Height = "172",
-                            Name = "Luke Skywalker",
-                            PlanetId = 0,
-                            SkinColor = "Fair",
-                            Weight = "77"
-                        });
+                    b.ToTable("Characters", (string)null);
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Movie", b =>
@@ -148,41 +89,101 @@ namespace desafio_shared.Migrations
 
                     b.Property<string>("Director")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Director");
 
                     b.Property<int>("Episode")
-                        .HasColumnType("INTEGER");
+                        .HasMaxLength(4)
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("Episode");
 
                     b.Property<string>("OpeningCrawl")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(7000)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("OpeningCrawl");
 
                     b.Property<string>("Producer")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Producer");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ReleaseDate");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Title");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Director = "George Lucas",
-                            Episode = 4,
-                            OpeningCrawl = "It is a period of civil war.",
-                            Producer = "Gary Kurtz, Rick McCallum",
-                            ReleaseDate = new DateTime(1977, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Star Wars: Episode IV - A New Hope"
-                        });
+            modelBuilder.Entity("desafio_shared.Entities.MovieCharacter", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CharacterId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MovieId", "CharacterId");
+
+                    b.HasIndex("CharacterId");
+
+                    b.ToTable("MovieCharacter", (string)null);
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MoviePlanet", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PlanetId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MovieId", "PlanetId");
+
+                    b.HasIndex("PlanetId");
+
+                    b.ToTable("MoviePlanets");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MovieStarship", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("StarshipId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MovieId", "StarshipId");
+
+                    b.HasIndex("StarshipId");
+
+                    b.ToTable("MovieStarships");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MovieVehicle", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MovieId", "VehicleId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("MovieVehicles");
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Planet", b =>
@@ -193,58 +194,61 @@ namespace desafio_shared.Migrations
 
                     b.Property<string>("Climate")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Climate");
 
                     b.Property<string>("Diameter")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Diameter");
 
                     b.Property<string>("Gravity")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Gravity");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Name");
 
                     b.Property<string>("OrbitalPeriod")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("OrbitalPeriod");
 
                     b.Property<string>("Population")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(15)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Population");
 
                     b.Property<string>("RotationPeriod")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("RotationPeriod");
 
                     b.Property<string>("SurfaceWater")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("SurfaceWater");
 
                     b.Property<string>("Terrain")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Terrain");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Planets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Climate = "Arid",
-                            Diameter = "10465",
-                            Gravity = "1 standard",
-                            Name = "Tatooine",
-                            OrbitalPeriod = "304",
-                            Population = "200000",
-                            RotationPeriod = "23",
-                            SurfaceWater = "1",
-                            Terrain = "Desert"
-                        });
+                    b.ToTable("Planets", (string)null);
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Starship", b =>
@@ -255,59 +259,85 @@ namespace desafio_shared.Migrations
 
                     b.Property<string>("CargoCapacity")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("CargoCapacity");
 
                     b.Property<string>("Class")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Class");
 
                     b.Property<string>("Consumables")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Consumables");
 
                     b.Property<string>("CostInCredits")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("CostInCredits");
 
                     b.Property<string>("Crew")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Crew");
 
                     b.Property<string>("HyperdriveRating")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("HyperdriveRating");
 
                     b.Property<string>("Length")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Length");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Manufacturer");
 
                     b.Property<string>("MaxSpeed")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("MaxSpeed");
 
                     b.Property<string>("Mglt")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Mglt");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(15)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Model");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Name");
 
                     b.Property<string>("Passengers")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("Passengers");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Starships");
+                    b.ToTable("Starships", (string)null);
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Vehicle", b =>
@@ -318,111 +348,62 @@ namespace desafio_shared.Migrations
 
                     b.Property<string>("CargoCapacity")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Class")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Consumables")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CostInCredits")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Crew")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Length")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MaxSpeed")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Model")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Passengers")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("CharacterMovie", b =>
-                {
-                    b.HasOne("desafio_shared.Entities.Character", null)
-                        .WithMany()
-                        .HasForeignKey("CharactersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("desafio_shared.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MoviePlanet", b =>
-                {
-                    b.HasOne("desafio_shared.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("desafio_shared.Entities.Planet", null)
-                        .WithMany()
-                        .HasForeignKey("PlanetsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MovieStarship", b =>
-                {
-                    b.HasOne("desafio_shared.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("desafio_shared.Entities.Starship", null)
-                        .WithMany()
-                        .HasForeignKey("StarshipsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MovieVehicle", b =>
-                {
-                    b.HasOne("desafio_shared.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("desafio_shared.Entities.Vehicle", null)
-                        .WithMany()
-                        .HasForeignKey("VehiclesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Vehicles", (string)null);
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Character", b =>
@@ -434,6 +415,87 @@ namespace desafio_shared.Migrations
                         .IsRequired();
 
                     b.Navigation("Planet");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MovieCharacter", b =>
+                {
+                    b.HasOne("desafio_shared.Entities.Character", "Character")
+                        .WithMany()
+                        .HasForeignKey("CharacterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("desafio_shared.Entities.Movie", "Movie")
+                        .WithMany("MovieCharacters")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Character");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MoviePlanet", b =>
+                {
+                    b.HasOne("desafio_shared.Entities.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("desafio_shared.Entities.Planet", "Planet")
+                        .WithMany()
+                        .HasForeignKey("PlanetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Planet");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MovieStarship", b =>
+                {
+                    b.HasOne("desafio_shared.Entities.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("desafio_shared.Entities.Starship", "Starship")
+                        .WithMany()
+                        .HasForeignKey("StarshipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Starship");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.MovieVehicle", b =>
+                {
+                    b.HasOne("desafio_shared.Entities.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("desafio_shared.Entities.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("desafio_shared.Entities.Movie", b =>
+                {
+                    b.Navigation("MovieCharacters");
                 });
 
             modelBuilder.Entity("desafio_shared.Entities.Planet", b =>

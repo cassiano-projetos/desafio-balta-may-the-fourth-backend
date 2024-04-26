@@ -8,7 +8,7 @@ namespace desafio_shared.Mapping
     {
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
-            builder.ToTable("Movie");
+            builder.ToTable("Movies");
 
             builder.HasKey(x => x.Id);
 
@@ -25,7 +25,7 @@ namespace desafio_shared.Mapping
                 
 
             builder.Property(x => x.OpeningCrawl)
-                .HasColumnName("Opening_Crawl")
+                .HasColumnName("OpeningCrawl")
                 .HasMaxLength(7000);
 
             builder.Property(x => x.Director)

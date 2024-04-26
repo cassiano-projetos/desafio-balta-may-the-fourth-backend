@@ -9,7 +9,7 @@ public class PlanetMap : IEntityTypeConfiguration<Planet>
 
     public void Configure(EntityTypeBuilder<Planet> builder)
     {
-        builder.ToTable("Planet");
+        builder.ToTable("Planets");
         
         builder.HasKey(x => x.Id);
         
