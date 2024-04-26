@@ -1,4 +1,5 @@
 ﻿using System;
+using desafio_backend.Services.Interfaces;
 using desafio_shared.Data;
 
 namespace desafio_backend.Extensions
@@ -11,6 +12,7 @@ namespace desafio_backend.Extensions
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>();
             builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddScoped<IMovieService, MovieService>();
         }
     }
 }
