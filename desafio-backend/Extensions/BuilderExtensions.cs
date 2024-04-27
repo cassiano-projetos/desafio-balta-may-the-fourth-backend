@@ -15,6 +15,7 @@ namespace desafio_backend.Extensions
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IVehicleService, VehicleService>();
             builder.Services.AddScoped<ICharacterService, CharacterService>();
+            builder.Services.AddScoped<IPlanetService, PlanetService>();
         }
     }
 }

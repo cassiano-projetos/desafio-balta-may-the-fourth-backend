@@ -12,10 +12,17 @@ namespace desafio_backend.Routes
         {
             var mapper = app.Services.GetService<IMapper>();
 
-            app.MapGet("/character", (ICharacterService service) =>
+            app.MapGet("/character", (ICharacterService service, int id) =>
             {
-                List<CharacterViewModel> character = service.GetCharacters();
+                CharacterViewModel character = service.GetCharacter(id);
                 return Results.Ok(character);
+
+            }).Produces<List<MovieViewModel>>();
+            
+            app.MapGet("/characters", (ICharacterService service) =>
+            {
+                List<CharacterViewModel> characters = service.GetCharacters();
+                return Results.Ok(characters);
 
             }).Produces<List<MovieViewModel>>();
             return app;
