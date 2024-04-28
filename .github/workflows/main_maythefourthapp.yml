@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'maythefourthapp'
           slot-name: 'Production'
-          package: ./desafio-backend
+          package: .
           
