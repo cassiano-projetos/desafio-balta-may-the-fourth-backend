@@ -16,6 +16,7 @@ namespace desafio_backend.Extensions
             builder.Services.AddScoped<IVehicleService, VehicleService>();
             builder.Services.AddScoped<ICharacterService, CharacterService>();
             builder.Services.AddScoped<IPlanetService, PlanetService>();
+            builder.Services.AddScoped<IStarshipService, StarshipService>();
         }
     }
 }
