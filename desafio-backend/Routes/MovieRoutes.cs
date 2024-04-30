@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using desafio_backend.Services.Interfaces;
 using desafio_backend.ViewModels;
+using desafio_shared.Entities;
 
 namespace desafio_backend.Routes
 {
@@ -12,8 +13,15 @@ namespace desafio_backend.Routes
             
             app.MapGet("/movie", (IMovieService service, int id) =>
             {
-                MovieViewModel movies = service.GetMovie(id);
-                return Results.Ok(movies);
+                try
+                {
+                    MovieViewModel movies = service.GetMovie(id);
+                    return Results.Ok(movies);
+                }
+                catch (Exception e)
+                {
+                    return Results.BadRequest(e.Message);
+                }
 
             }).Produces<MovieViewModel>();
 
