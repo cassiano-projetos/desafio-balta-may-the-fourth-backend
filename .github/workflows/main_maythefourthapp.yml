@@ -48,7 +48,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-      
+          
+      - name: Update database
+        run: dotnet ef database update 
+        
       - name: Login to Azure
         uses: azure/login@v1
         with:
