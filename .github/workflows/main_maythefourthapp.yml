@@ -50,7 +50,7 @@ jobs:
           name: .net-app
 
       - name: Install ef
-        run: dotnet tool install dotnet-ef
+        run: dotnet tool install --global dotnet-ef
         
       - name: Update database
         run: dotnet ef database update 
