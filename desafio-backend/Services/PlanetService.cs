@@ -1,6 +1,7 @@
 using desafio_backend.Services.Interfaces;
 using desafio_backend.ViewModels;
 using desafio_shared.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace desafio_backend.Services;
 
@@ -38,7 +39,7 @@ public class PlanetService : IPlanetService
                     Title = m.Movie.Title
 
                 }).ToList()
-            )).FirstOrDefault();
+            )).AsNoTracking().FirstOrDefault();
         
         return result;
     }
@@ -67,7 +68,7 @@ public class PlanetService : IPlanetService
                 Title = m.Movie.Title
                     
             }).ToList()
-        )).ToList();
+        )).AsNoTracking().ToList();
         
         return result;
     }

@@ -17,6 +17,7 @@
             Mglt = mglt;
             Consumables = consumables;
             Class = @class;
+            Movies = movies;
         }
 
         public string Name { get; private set; } = string.Empty;

@@ -1,6 +1,7 @@
 ﻿using desafio_backend.Services.Interfaces;
 using desafio_backend.ViewModels;
 using desafio_shared.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace desafio_backend.Services
 {
@@ -33,8 +34,7 @@ namespace desafio_backend.Services
                         Id = mv.Movie.Id,
                         Title = mv.Movie.Title
                     }).ToList()
-                ))
-                .FirstOrDefault();
+                )).AsNoTracking().FirstOrDefault();
 
             return result;
         }
@@ -59,8 +59,7 @@ namespace desafio_backend.Services
                     Id = mv.Movie.Id,
                     Title = mv.Movie.Title
                 }).ToList()
-                ))
-                .ToList();
+                )).AsNoTracking().ToList();
 
             return result;
         }

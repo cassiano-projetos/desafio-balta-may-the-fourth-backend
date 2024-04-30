@@ -1,6 +1,7 @@
 using desafio_backend.Services.Interfaces;
 using desafio_backend.ViewModels;
 using desafio_shared.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace desafio_backend.Services;
 
@@ -34,7 +35,7 @@ public class StarshipService : IStarshipService
                 Id = ms.MovieId,
                 Title = ms.Movie.Title
             }).ToList()
-        )).FirstOrDefault();
+        )).AsNoTracking().FirstOrDefault();
 
         return result;
     }
@@ -57,10 +58,10 @@ public class StarshipService : IStarshipService
             starship.Class,
             starship.MovieStarShips.Select(ms => new BasicMovieInfoViewModel
             {
-                Id = ms.MovieId,
+                Id = ms.Movie.Id,
                 Title = ms.Movie.Title
             }).ToList()
-        )).ToList();
+        )).AsNoTracking().ToList();
         return result;
     }
 }
