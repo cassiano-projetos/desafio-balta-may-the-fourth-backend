@@ -2,7 +2,7 @@
 {
     public class StarshipViewModel
     {
-        public StarshipViewModel(string name, string model, string manufacturer, string costInCredits, string length, string maxSpeed, string crew, string passengers, string cargoCapacity, string hyperdriveRating, string mglt, string consumables, string @class)
+        public StarshipViewModel(string name, string model, string manufacturer, string costInCredits, string length, string maxSpeed, string crew, string passengers, string cargoCapacity, string hyperdriveRating, string mglt, string consumables, string @class, IEnumerable<BasicMovieInfoViewModel> movies)
         {
             Name = name;
             Model = model;
@@ -32,5 +32,7 @@
         public string Mglt { get; private set; } = string.Empty;
         public string Consumables { get; private set; } = string.Empty;
         public string Class { get; private set; } = string.Empty;
+        
+        public IEnumerable<BasicMovieInfoViewModel> Movies { get; private set; }
     }
 }

@@ -9,6 +9,13 @@ namespace desafio_backend.Routes
         public static WebApplication MapVehicleRoutes(this WebApplication app)
         {
             var mapper = app.Services.GetService<IMapper>();
+            
+            app.MapGet("/vehicle", (IVehicleService service, int id) =>
+            {
+                VehicleViewModel vehicle = service.GetVehicle(id);
+                return Results.Ok(vehicle);
+
+            }).Produces<VehicleViewModel>();
 
             app.MapGet("/vehicles", (IVehicleService service) =>
             {
