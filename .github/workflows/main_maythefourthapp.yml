@@ -53,7 +53,7 @@ jobs:
         run: dotnet tool install --global dotnet-ef
         
       - name: Update database
-        run: dotnet ef database update 
+        run: cd .\desafio-backend\ dotnet ef database update 
         
       - name: Login to Azure
         uses: azure/login@v1
