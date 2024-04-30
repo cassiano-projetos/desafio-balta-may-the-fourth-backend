@@ -1,6 +1,7 @@
 ﻿using desafio_backend.Services.Interfaces;
 using desafio_backend.ViewModels;
 using desafio_shared.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace desafio_backend.Services
 {
@@ -45,7 +46,7 @@ namespace desafio_backend.Services
                         Id = x.Starship.Id,
                         Name = x.Starship.Name
                     }).ToList()
-                )).FirstOrDefault();
+                )).AsNoTracking().FirstOrDefault();
 
             return result;
         }
@@ -83,7 +84,7 @@ namespace desafio_backend.Services
                         Name = x.Starship.Name
                     }).ToList()
                 ))
-                .ToList();
+                .AsNoTracking().ToList();
 
             return result;
         }
