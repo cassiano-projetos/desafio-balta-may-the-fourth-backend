@@ -10,19 +10,20 @@ Desenvolvimento de uma API completa, fornecendo recursos como criação, leitura
 
 ## Participantes
 ### 🚀 Capitão
-[Cassiano do Prado Oliveira https://github.com/cassiano-projetos]
+* [Cassiano do Prado Oliveira https://github.com/cassiano-projetos]
 
 ### 💂‍♀️ Batalhão
-* [NOME e GITHUB]
-* [NOME e GITHUB]
-* [NOME e GITHUB]
-* [NOME e GITHUB]
+* [Jaqueline Aparecida Manzano dos Santos https://github.com/JaqueManzano]
+* [Paulo Sérgio Pinto https://github.com/CsPauloNoob]
+* [Pedro Celestino Moreira Fernandez https://github.com/PedroCMF]
+* [Pedro Henrique de Lima Gasquez https://github.com/Stal91]
 
 ## ⚙️ Tecnologias
 * C# 12
 * .NET 8
 * ASP.NET
 * Minimal APIs
+* SQLite
 
 ## 🥋 Skills Desenvolvidas
 * Comunicação
@@ -31,7 +32,16 @@ Desenvolvimento de uma API completa, fornecendo recursos como criação, leitura
 * Muito conhecimento técnico
 
 ## 🧪 Como testar o projeto
-[DESCREVER COMO EXECUTAR O PROJETO]
+* Clone o repositório:
+```bash
+git clone https://github.com/cassiano-projetos/desafio-balta-may-the-fourth-backend.git
+```
+* Entre na pasta do repositório clonado, abra o terminal e digite:
+```bash
+cd desafio-backend
+dotnet run
+```
+* Dê um ctrl + botão esquerdo do mouse no link apresentado no terminal para abrir o swagger no navegador com os endpoints.
 
 # 💜 Participe
 Quer participar dos próximos desafios? Junte-se a [maior comunidade .NET do Brasil 🇧🇷 💜](https://balta.io/discord)
