@@ -16,7 +16,7 @@ namespace desafio_backend.Services
 
         public VehicleViewModel GetVehicle(int id)
         {
-            var result = _context.Vehicles.Where(x=>x.Id == id)
+            var result = _context.Vehicles.Where(x => x.Id == id)
                 .Select(vehicle => new VehicleViewModel(
                     vehicle.Name,
                     vehicle.Model,
@@ -29,10 +29,10 @@ namespace desafio_backend.Services
                     vehicle.CargoCapacity,
                     vehicle.Consumables,
                     vehicle.Class,
-                    vehicle.MovieVehicles.Select(mv => new BasicMovieInfoViewModel
+                    vehicle.Movies.Select(mv => new BasicMovieInfoViewModel
                     {
-                        Id = mv.Movie.Id,
-                        Title = mv.Movie.Title
+                        Id = mv.Id,
+                        Title = mv.Title
                     }).ToList()
                 )).AsNoTracking().FirstOrDefault();
 
@@ -54,12 +54,12 @@ namespace desafio_backend.Services
                 vehicle.CargoCapacity,
                 vehicle.Consumables,
                 vehicle.Class,
-                vehicle.MovieVehicles.Select(mv => new BasicMovieInfoViewModel
+                vehicle.Movies.Select(mv => new BasicMovieInfoViewModel
                 {
-                    Id = mv.Movie.Id,
-                    Title = mv.Movie.Title
+                    Id = mv.Id,
+                    Title = mv.Title
                 }).ToList()
-                )).AsNoTracking().ToList();
+            )).AsNoTracking().ToList();
 
             return result;
         }

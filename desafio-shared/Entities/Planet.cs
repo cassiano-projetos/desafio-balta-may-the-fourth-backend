@@ -39,7 +39,6 @@
         public IEnumerable<Character> Characters { get; private set; }
         
         public IEnumerable<Movie> Movies { get; private set; }
-        public IEnumerable<MoviePlanet> MoviePlanets { get; private set; }
 
         
     }

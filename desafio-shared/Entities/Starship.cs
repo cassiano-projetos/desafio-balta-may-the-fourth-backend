@@ -47,6 +47,5 @@
         
         public IEnumerable<Movie> Movies { get; set; }
         
-        public IEnumerable<MovieStarship> MovieStarShips { get; private set; }
     }
 }

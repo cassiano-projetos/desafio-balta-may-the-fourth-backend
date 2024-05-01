@@ -64,8 +64,7 @@ public class CharacterMap : IEntityTypeConfiguration<Character>
             .HasForeignKey(pc=>pc.PlanetId);
 
         builder.HasMany(m => m.Movies)
-            .WithMany(c => c.Characters)
-            .UsingEntity<MovieCharacter>();
+            .WithMany(c => c.Characters);
             
 
 

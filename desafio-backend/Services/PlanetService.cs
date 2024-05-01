@@ -33,10 +33,10 @@ public class PlanetService : IPlanetService
                     Name = c.Name
 
                 }).ToList(),
-                planet.MoviePlanets.Select(m => new BasicMovieInfoViewModel
+                planet.Movies.Select(m => new BasicMovieInfoViewModel
                 {
-                    Id = m.Movie.Id,
-                    Title = m.Movie.Title
+                    Id = m.Id,
+                    Title = m.Title
 
                 }).ToList()
             )).AsNoTracking().FirstOrDefault();
@@ -62,10 +62,10 @@ public class PlanetService : IPlanetService
                 Name = c.Name
 
             }).ToList(),
-            planet.MoviePlanets.Select(m=>new BasicMovieInfoViewModel
+            planet.Movies.Select(m=>new BasicMovieInfoViewModel
             {
-                Id = m.Movie.Id,
-                Title = m.Movie.Title
+                Id = m.Id,
+                Title = m.Title
                     
             }).ToList()
         )).AsNoTracking().ToList();

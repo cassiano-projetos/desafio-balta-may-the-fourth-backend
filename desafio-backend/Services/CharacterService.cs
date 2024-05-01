@@ -16,32 +16,8 @@ namespace desafio_backend.Services
         
         public CharacterViewModel GetCharacter(int id)
         {
-            var result = _context.Characters.Where(x=>x.Id == id)
-                .Select(character => new CharacterViewModel(
-                    character.Name,
-                    character.Height,
-                    character.Weight,
-                    character.HairColor,
-                    character.SkinColor,
-                    character.EyeColor,
-                    character.BirthYear,
-                    character.Gender,
-                    new BasicInfoViewModel { Id = character.Planet.Id, Name = character.Planet.Name },
-                    character.MovieCharacters.Select(mv => new BasicMovieInfoViewModel
-                    {
-                        Id = mv.Movie.Id,
-                        Title = mv.Movie.Title
-                    }).ToList()
-                ))
-                .AsNoTracking().FirstOrDefault();
-
-            return result;
-        }
-        
-
-        public List<CharacterViewModel> GetCharacters()
-        {
-            var result = _context.Characters.Select(character => new CharacterViewModel(
+            var result = _context.Characters.Select(character =>
+             new CharacterViewModel(
                 character.Name,
                 character.Height,
                 character.Weight,
@@ -51,13 +27,36 @@ namespace desafio_backend.Services
                 character.BirthYear,
                 character.Gender,
                 new BasicInfoViewModel { Id = character.Planet.Id, Name = character.Planet.Name },
-                character.MovieCharacters.Select(mv => new BasicMovieInfoViewModel
+                character.Movies.Select(mv => new BasicMovieInfoViewModel
+                   {
+                       Id = mv.Id,
+                       Title = mv.Title
+                   }).ToList()
+            )).AsNoTracking().FirstOrDefault();
+
+            return result;
+        }
+        
+
+        public List<CharacterViewModel> GetCharacters()
+        {
+            var result = _context.Characters.Select(character => 
+            new CharacterViewModel(
+                character.Name,
+                character.Height,
+                character.Weight,
+                character.HairColor,
+                character.SkinColor,
+                character.EyeColor,
+                character.BirthYear,
+                character.Gender,
+                new BasicInfoViewModel { Id = character.Planet.Id, Name = character.Planet.Name },
+                character.Movies.Select(mv => new BasicMovieInfoViewModel
                 {
-                    Id = mv.Movie.Id,
-                    Title = mv.Movie.Title
+                    Id = mv.Id,
+                    Title = mv.Title
                 }).ToList()
-                ))
-                .AsNoTracking().ToList();
+            )).AsNoTracking().ToList();
 
             return result;
         }

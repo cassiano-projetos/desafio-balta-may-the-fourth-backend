@@ -24,27 +24,27 @@ namespace desafio_backend.Services
                     movie.Director,
                     movie.Producer,
                     movie.ReleaseDate,
-                    movie.MovieCharacters.Select(mc => new BasicInfoViewModel
+                    movie.Characters.Select(mc => new BasicInfoViewModel
                     {
-                        Id = mc.Character.Id,
-                        Name = mc.Character.Name
+                        Id = mc.Id,
+                        Name = mc.Name
                     }).ToList(),
 
-                    movie.MoviePlanets.Select(x => new BasicInfoViewModel
+                    movie.Planets.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Planet.Id,
-                        Name = x.Planet.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList(),
 
-                    movie.MovieVehicles.Select(x => new BasicInfoViewModel
+                    movie.Vehicles.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Vehicle.Id,
-                        Name = x.Vehicle.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList(),
-                    movie.MovieStarships.Select(x => new BasicInfoViewModel
+                    movie.Starships.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Starship.Id,
-                        Name = x.Starship.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList()
                 )).AsNoTracking().FirstOrDefault();
 
@@ -61,30 +61,29 @@ namespace desafio_backend.Services
                     movie.Director,
                     movie.Producer,
                     movie.ReleaseDate,
-                    movie.MovieCharacters.Select(mc => new BasicInfoViewModel
+                    movie.Characters.Select(mc => new BasicInfoViewModel
                     {
-                        Id = mc.Character.Id,
-                        Name = mc.Character.Name
+                        Id = mc.Id,
+                        Name = mc.Name
                     }).ToList(),
 
-                    movie.MoviePlanets.Select(x => new BasicInfoViewModel
+                    movie.Planets.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Planet.Id,
-                        Name = x.Planet.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList(),
 
-                    movie.MovieVehicles.Select(x => new BasicInfoViewModel
+                    movie.Vehicles.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Vehicle.Id,
-                        Name = x.Vehicle.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList(),
-                    movie.MovieStarships.Select(x => new BasicInfoViewModel
+                    movie.Starships.Select(x => new BasicInfoViewModel
                     {
-                        Id = x.Starship.Id,
-                        Name = x.Starship.Name
+                        Id = x.Id,
+                        Name = x.Name
                     }).ToList()
-                ))
-                .AsNoTracking().ToList();
+                )).AsNoTracking().ToList();
 
             return result;
         }

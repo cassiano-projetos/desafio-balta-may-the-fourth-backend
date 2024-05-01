@@ -40,6 +40,5 @@
         public string Class { get; private set; } = string.Empty;
         
         public IEnumerable<Movie> Movies { get; private set; }
-        public IEnumerable<MovieVehicle> MovieVehicles { get; private set; }
     }
 }

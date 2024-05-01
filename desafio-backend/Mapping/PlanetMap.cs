@@ -71,8 +71,7 @@ public class PlanetMap : IEntityTypeConfiguration<Planet>
             .HasForeignKey(p => p.PlanetId);
 
         builder.HasMany(m => m.Movies)
-            .WithMany(p => p.Planets)
-            .UsingEntity<MoviePlanet>();
+            .WithMany(p => p.Planets);
     }
     
 }

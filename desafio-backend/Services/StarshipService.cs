@@ -16,7 +16,9 @@ public class StarshipService : IStarshipService
     
     public StarshipViewModel GetStarShip(int id)
     {
-        var result = _context.Starships.Where(x=>x.Id == id).Select(starship => new StarshipViewModel(
+        var result = _context.Starships
+            .Where(x=>x.Id == id).Select(starship => 
+            new StarshipViewModel(
             starship.Name,
             starship.Model,
             starship.Manufacturer,
@@ -30,10 +32,10 @@ public class StarshipService : IStarshipService
             starship.Mglt,
             starship.Consumables,
             starship.Class,
-            starship.MovieStarShips.Select(ms => new BasicMovieInfoViewModel
+            starship.Movies.Select(ms => new BasicMovieInfoViewModel
             {
-                Id = ms.MovieId,
-                Title = ms.Movie.Title
+                Id = ms.Id,
+                Title = ms.Title
             }).ToList()
         )).AsNoTracking().FirstOrDefault();
 
@@ -42,7 +44,8 @@ public class StarshipService : IStarshipService
 
     public List<StarshipViewModel> GetStarShips()
     {
-        var result = _context.Starships.Select(starship => new StarshipViewModel(
+        var result = _context.Starships.Select(starship => 
+        new StarshipViewModel(
             starship.Name,
             starship.Model,
             starship.Manufacturer,
@@ -56,10 +59,10 @@ public class StarshipService : IStarshipService
             starship.Mglt,
             starship.Consumables,
             starship.Class,
-            starship.MovieStarShips.Select(ms => new BasicMovieInfoViewModel
+            starship.Movies.Select(ms => new BasicMovieInfoViewModel
             {
-                Id = ms.Movie.Id,
-                Title = ms.Movie.Title
+                Id = ms.Id,
+                Title = ms.Title
             }).ToList()
         )).AsNoTracking().ToList();
         return result;
