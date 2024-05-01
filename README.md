@@ -10,7 +10,7 @@ Desenvolvimento de uma API completa, fornecendo recursos como criação, leitura
 
 ## Participantes
 ### 🚀 Capitão
-[NOME e GITHUB]
+[Cassiano do Prado Oliveira https://github.com/cassiano-projetos]
 
 ### 💂‍♀️ Batalhão
 * [NOME e GITHUB]
